@@ -1,0 +1,153 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your super  ApplicationAPI",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/game_login": {
+            "post": {
+                "summary": "取得開啟遊戲Url",
+                "description": "取得開啟遊戲Url",
+                "operationId": "App\\Http\\Controllers\\ThirdPartyController::GameLogin",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "query",
+                        "description": "玩家Id 預設1",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "gameId",
+                        "in": "query",
+                        "description": "遊戲Id 預設1",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功"
+                    }
+                }
+            }
+        },
+        "/api/payout": {
+            "post": {
+                "summary": "付款",
+                "description": "付款購買商品",
+                "operationId": "App\\Http\\Controllers\\ThirdPartyController::Payout",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "訂單號",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "query",
+                        "description": "用户id 目前可能會等同於 腳色暱稱",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "money",
+                        "in": "query",
+                        "description": "充值金额",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "callBackUrl",
+                        "in": "query",
+                        "description": "通知遊戲付款回傳網址",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sign",
+                        "in": "query",
+                        "description": "簽章",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "game",
+                        "in": "query",
+                        "description": "遊戲名稱",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "server",
+                        "in": "query",
+                        "description": "目前為1 游戏服务器id",
+                        "required": false,
+                        "schema": {
+                            "type": "String"
+                        }
+                    },
+                    {
+                        "name": "product_name",
+                        "in": "query",
+                        "description": "商品名",
+                        "required": false,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功"
+                    }
+                }
+            }
+        },
+        "/api/PlayerInfo": {
+            "post": {
+                "summary": "取得玩家資訊",
+                "description": "取得玩家資訊",
+                "operationId": "App\\Http\\Controllers\\ThirdPartyController::PlayerInfo",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "開遊戲使用的token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
